@@ -7,6 +7,7 @@
     <groupId>pl.sda.dystans</groupId>
     <artifactId>Dystans</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,6 +38,17 @@
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics </artifactId>
+            <version>11</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>11</version>
         </dependency>
@@ -45,12 +57,7 @@
             <artifactId>javafx-fxml</artifactId>
             <version>11</version>
         </dependency>
-        <dependency>
-            <groupId>net.java.openjfx.backport</groupId>
-            <artifactId>openjfx-78-backport</artifactId>
-            <version>1.8.0-ea-b96.1</version>
-        </dependency>
-        <!-- Thanks for using https://jar-download.com -->
+
     </dependencies>
 
     <build>
@@ -69,38 +76,16 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <mainClass>pl.sda.dystans.Main</mainClass>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
+                    <outputDirectory>lib</outputDirectory>
                     <archive>
                         <manifest>
                             <mainClass>pl.sda.dystans.Main</mainClass>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <stripDebug>true</stripDebug>
-                    <compress>2</compress>
-                    <noHeaderFiles>true</noHeaderFiles>
-                    <noManPages>true</noManPages>
-                    <launcher>main</launcher>
-                    <jlinkImageName>main</jlinkImageName>
-                    <jlinkZipName>point</jlinkZipName>
-                    <mainClass>pl.sda.dystans.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
